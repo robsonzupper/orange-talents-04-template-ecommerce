@@ -29,8 +29,7 @@ public class Feature implements Serializable {
     public Feature() {
     }
 
-    public Feature(Long id, String name, String descsription, Product product) {
-        this.id = id;
+    public Feature(String name, String descsription, Product product) {
         this.name = name;
         this.descsription = descsription;
         this.product = product;

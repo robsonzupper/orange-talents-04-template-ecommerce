@@ -15,9 +15,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
+import br.com.zupacademy.robson.ecommerce.user.User;
 import br.com.zupacademy.robson.ecommerce.image.Image;
 import br.com.zupacademy.robson.ecommerce.feature.Feature;
 import br.com.zupacademy.robson.ecommerce.category.Category;
+import br.com.zupacademy.robson.ecommerce.feature.FeatureRequest;
 
 /**
  *
@@ -45,9 +47,28 @@ public class Product implements Serializable {
     @ManyToOne
     private Category category;
 
+    @ManyToOne
+    private User user;
+
     public void addImage(Set<String> links) {
 
         links.forEach(link -> images.add(new Image(link, this)));
+    }
+
+    public Product() {
+    }
+
+    public Product(String name, BigDecimal value, Integer quantity,
+            List<FeatureRequest> features, String description,
+            Category category, User user) {
+
+        this.name = name;
+        this.value = value;
+        this.quantity = quantity;
+        this.description = description;
+        this.category = category;
+        this.user = user;
+        this.features = FeatureRequest.convertToList(features, this);
     }
 
     public Long getId() {
@@ -84,6 +105,10 @@ public class Product implements Serializable {
 
     public Category getCategory() {
         return category;
+    }
+
+    public User getUser() {
+        return user;
     }
 
 }
