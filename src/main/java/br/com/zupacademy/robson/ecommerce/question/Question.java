@@ -24,7 +24,7 @@ public class Question implements Serializable {
     private Long id;
     private String title;
     private String content;
-    private LocalDateTime instanteCriacao = LocalDateTime.now();
+    private LocalDateTime intantOfCreation = LocalDateTime.now();
 
     @ManyToOne
     private User user;
@@ -51,8 +51,8 @@ public class Question implements Serializable {
         return title;
     }
 
-    public LocalDateTime getInstanteCriacao() {
-        return instanteCriacao;
+    public LocalDateTime getIntantOfCreation() {
+        return intantOfCreation;
     }
 
     public User getUser() {
