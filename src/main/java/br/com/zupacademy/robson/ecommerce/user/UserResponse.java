@@ -2,13 +2,13 @@ package br.com.zupacademy.robson.ecommerce.user;
 
 import java.time.LocalDateTime;
 
-public class UsuarioResponse {
+public class UserResponse {
 
     private Long id;
     private String login;
     private LocalDateTime instanteCriacao;
 
-    public UsuarioResponse(User user) {
+    public UserResponse(User user) {
         this.id = user.getId();
         this.login = user.getLogin();
         this.instanteCriacao = user.getInstantOfCreation();

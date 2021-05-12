@@ -5,7 +5,7 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.validator.constraints.Length;
 import br.com.zupacademy.robson.ecommerce.validation.UniqueValue;
 
-public class UsuarioRequest {
+public class UserRequest {
 
     @NotBlank
     @Email
@@ -16,7 +16,7 @@ public class UsuarioRequest {
     @Length(min = 6)
     private String senha;
 
-    public UsuarioRequest(String login, String senha) {
+    public UserRequest(String login, String senha) {
         this.login = login;
         this.senha = senha;
     }
