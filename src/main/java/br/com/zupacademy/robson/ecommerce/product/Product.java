@@ -11,11 +11,13 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
 import br.com.zupacademy.robson.ecommerce.image.Image;
 import br.com.zupacademy.robson.ecommerce.feature.Feature;
+import br.com.zupacademy.robson.ecommerce.category.Category;
 
 /**
  *
@@ -39,6 +41,9 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
     private Set<Image> images = new HashSet<>();
+
+    @ManyToOne
+    private Category category;
 
     public void addImage(Set<String> links) {
 
@@ -75,6 +80,10 @@ public class Product implements Serializable {
 
     public Set<Image> getImages() {
         return images;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
 }
