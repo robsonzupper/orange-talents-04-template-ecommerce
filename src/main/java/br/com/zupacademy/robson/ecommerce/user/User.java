@@ -1,12 +1,17 @@
 package br.com.zupacademy.robson.ecommerce.user;
 
+import br.com.zupacademy.robson.ecommerce.profile.Profile;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Table;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
@@ -23,6 +28,9 @@ public class User implements Serializable {
     private Long id;
     private String login;
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    List<Profile> profiles = new ArrayList<>();
 
     @NotNull
     @PastOrPresent
