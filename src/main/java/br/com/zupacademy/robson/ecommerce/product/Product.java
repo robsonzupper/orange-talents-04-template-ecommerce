@@ -1,6 +1,8 @@
 package br.com.zupacademy.robson.ecommerce.product;
 
+import java.util.Set;
 import java.util.List;
+import java.util.HashSet;
 import java.util.ArrayList;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -12,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.GenerationType;
 import javax.persistence.GeneratedValue;
+import br.com.zupacademy.robson.ecommerce.image.Image;
 import br.com.zupacademy.robson.ecommerce.feature.Feature;
 
 /**
@@ -33,6 +36,14 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
     private List<Feature> features = new ArrayList<>();
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
+    private Set<Image> images = new HashSet<>();
+
+    public void addImage(Set<String> links) {
+
+        links.forEach(link -> images.add(new Image(link, this)));
+    }
 
     public Long getId() {
         return id;
@@ -60,6 +71,10 @@ public class Product implements Serializable {
 
     public List<Feature> getFeatures() {
         return features;
+    }
+
+    public Set<Image> getImages() {
+        return images;
     }
 
 }
