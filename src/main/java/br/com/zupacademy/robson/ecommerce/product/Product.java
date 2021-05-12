@@ -1,13 +1,18 @@
 package br.com.zupacademy.robson.ecommerce.product;
 
+import java.util.List;
+import java.util.ArrayList;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
+import javax.persistence.CascadeType;
 import javax.persistence.GenerationType;
+import javax.persistence.GeneratedValue;
+import br.com.zupacademy.robson.ecommerce.feature.Feature;
 
 /**
  *
@@ -25,6 +30,9 @@ public class Product implements Serializable {
     private Integer quantity;
     private String description;
     private LocalDateTime instantOfCreation = LocalDateTime.now();
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.PERSIST)
+    private List<Feature> features = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -48,6 +56,10 @@ public class Product implements Serializable {
 
     public LocalDateTime getInstantOfCreation() {
         return instantOfCreation;
+    }
+
+    public List<Feature> getFeatures() {
+        return features;
     }
 
 }
