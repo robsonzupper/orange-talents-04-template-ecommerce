@@ -48,10 +48,10 @@ public class ProductRequest {
         this.idCategory = idCategory;
     }
 
-    public Product converteToProduct(CategoryRepository categoriaRepository) {
-        Category categoria = categoriaRepository.findById(this.idCategory).get();
+    public Product converteToProduct(CategoryRepository categoryRepository) {
+        Category category = categoryRepository.findById(this.idCategory).get();
         return new Product(this.name, this.value, this.quantity,
-                this.description, categoria, this.features);
+                this.description, category, this.features);
     }
 
     public List<FeatureRequest> getFeatures() {
