@@ -50,6 +50,10 @@ public class Product implements Serializable {
     @ManyToOne
     private User user;
 
+    Product(String name, BigDecimal value, Integer quantity, String description, Category categoria, List<FeatureRequest> features) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void addImage(Set<String> links) {
 
         links.forEach(link -> images.add(new Image(link, this)));
