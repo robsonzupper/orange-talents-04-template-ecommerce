@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
 
-    public List<Question> findByProdutoId(Long id);
+    public List<Question> findByProductId(Long id);
 }

@@ -11,5 +11,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @Repository
 public interface OpinionRepository extends JpaRepository<Opinion, Long> {
 
-    public List<Opinion> findByProdutoId(Long id);
+    public List<Opinion> findByProductId(Long id);
 }
