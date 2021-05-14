@@ -21,7 +21,7 @@ public class UserRequest {
         this.senha = senha;
     }
 
-    public User converteUsuarioRequestParaUsuario() {
+    public User convertToUser() {
         return new User(login, senha);
     }
 }
