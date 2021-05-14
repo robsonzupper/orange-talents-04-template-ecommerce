@@ -18,7 +18,7 @@ public class CategoryRequest {
         this.idCategoryMother = idCategoryMother;
     }
 
-    public Category converteCategoryRequestParaCategory(
+    public Category convertToCategory(
             CategoryRepository categoryRepository) {
 
         Category category = new Category(this.name);
