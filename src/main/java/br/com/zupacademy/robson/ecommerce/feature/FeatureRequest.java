@@ -2,9 +2,8 @@ package br.com.zupacademy.robson.ecommerce.feature;
 
 import java.util.List;
 import java.util.ArrayList;
-import br.com.zupacademy.robson.ecommerce.feature.Feature;
-import br.com.zupacademy.robson.ecommerce.product.Product;
 import org.springframework.stereotype.Component;
+import br.com.zupacademy.robson.ecommerce.product.Product;
 
 /**
  *

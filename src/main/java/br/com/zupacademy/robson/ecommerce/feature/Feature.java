@@ -21,7 +21,7 @@ public class Feature implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-    private String descsription;
+    private String description;
 
     @ManyToOne
     private Product product;
@@ -29,9 +29,9 @@ public class Feature implements Serializable {
     public Feature() {
     }
 
-    public Feature(String name, String descsription, Product product) {
+    public Feature(String name, String description, Product product) {
         this.name = name;
-        this.descsription = descsription;
+        this.description = description;
         this.product = product;
     }
 
@@ -43,8 +43,8 @@ public class Feature implements Serializable {
         return name;
     }
 
-    public String getDescsription() {
-        return descsription;
+    public String getDescription() {
+        return description;
     }
 
     public Product getProduct() {
