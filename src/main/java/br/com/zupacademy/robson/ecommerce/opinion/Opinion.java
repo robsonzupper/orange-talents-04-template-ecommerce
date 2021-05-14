@@ -34,10 +34,9 @@ public class Opinion implements Serializable {
     public Opinion() {
     }
 
-    public Opinion(Long id, Integer note, String title, String description,
+    public Opinion(Integer note, String title, String description,
             Product product, User user) {
 
-        this.id = id;
         this.note = note;
         this.title = title;
         this.description = description;
