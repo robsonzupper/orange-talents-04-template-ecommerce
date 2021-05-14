@@ -6,6 +6,7 @@ import javax.persistence.Table;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  *
@@ -13,7 +14,7 @@ import javax.persistence.GenerationType;
  */
 @Entity
 @Table(name = "profile")
-public class Profile implements Serializable {
+public class Profile implements Serializable, GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -33,5 +34,10 @@ public class Profile implements Serializable {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String getAuthority() {
+        return this.name;
     }
 }
